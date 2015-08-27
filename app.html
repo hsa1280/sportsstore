@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="sportsStore">
+<head>
+    <title>SportsStore</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        angular.module("sportsStore", ["customFilters", "cart", "ngRoute"])
+        .config(function($routeProvider) {
+
+            $routeProvider.when("/checkout", {
+                templateUrl: "views/checkoutSummary.html"
+            });
+
+            $routeProvider.when("/products", {
+                templateUrl: "views/productList.html"
+            });
+
+            $routeProvider.when("/complete", {
+                templateUrl: "views/thankYou.html"
+            });
+
+            $routeProvider.when("/placeOrder", {
+                templateUrl: "views/placeOrder.html"
+            });
+
+            $routeProvider.otherwise({
+                templateUrl: "views/productList.html"
+            });
+        });
+    </script>
+    <script src="controllers/sportsStore.js"></script>
+    <script src="filters/customFilters.js"></script>
+    <script src="controllers/productListControllers.js"></script>
+    <script src="components/cart/cart.js"></script>
+    <script src="angular-route.js"></script>
+    <script src="controllers/checkoutController.js"></script>
+</head>
+<body ng-controller="sportsStoreCtrl">
+
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+
+    <div class="navbar navbar-inverse">
+        <a class="navbar-brand" href="#">SPORTS STORE</a>
+        <cart-summary>
+    </div>
+    <div class="alert laert-danger" ng-show="data.error">
+        <p>Error({{data.error.message}}). The product data was not loaded.</p>
+    </div>
+    <ng-view>
+</body>
+</html>

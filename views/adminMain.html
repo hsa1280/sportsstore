@@ -1,0 +1,11 @@
+<div ng-controller="displayCtrl">
+	<div class="col-xs-3 panel-body">
+		<a ng-repeat="type in displayTypes" ng-click="selectType(type)" class="btn btn-block btn-default"
+			ng-class="{'btn-primary': type == currentType }">
+			{{type}}
+		</a>
+	</div>
+	<div class="col-xs-8 panel-body" >
+		<div ng-include="getPage()" />
+	</div>
+</div>
