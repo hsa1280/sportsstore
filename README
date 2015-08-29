@@ -1,0 +1,9 @@
+2.1. Install Connect NodeJs plugin
+a. Open command prompt and navigate to folder where NodeJs is installed
+b. type npm install connect and enter
+
+2.2 Install ServeStatic NodeJs plugin
+Within the same folder as above in a , type npm install serve-static and enter
+
+2.3 start server
+node server.js, in the browser type in localhost:5000/app.html
